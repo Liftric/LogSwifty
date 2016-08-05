@@ -44,7 +44,7 @@ struct Message {
 extension Loggable {
     func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
         let message = Message(message, level: level, file: file, function: function, line: line)
-        print(formatMessage(message))
+        logger.log(output: formatMessage(message))
     }
 
     func formatMessage(_ message: Message) -> String {
@@ -52,6 +52,23 @@ extension Loggable {
     }
 }
 
+public protocol Logger {
+    static func log(output: String)
+}
+
+struct DefaultLogger: Logger {
+    public static func log(output: String) {
+        print(output)
+    }
+}
+
+extension Loggable {
+    var logger: Logger.Type {
+        return DefaultLogger.self
+    }
+}
+
 public protocol Loggable {
+    var logger: Logger.Type { get }
     func log(_ level: LogLevel, message: String, file: String, function: String, line: Int)
 }

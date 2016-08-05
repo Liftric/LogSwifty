@@ -10,7 +10,6 @@ import XCTest
 @testable import LogSwifty
 
 class LogSwiftyTests: XCTestCase {
-    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,15 +21,13 @@ class LogSwiftyTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let loggableObject = CrazyClass()
+        loggableObject.doSomethingCrazy()
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+}
+
+class CrazyClass: Loggable {
+    func doSomethingCrazy() {
+        log(.info, message: "something crazy happened!")
     }
-    
 }

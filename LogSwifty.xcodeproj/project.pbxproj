@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B47C7B01D54A7C300C9CF3A /* LogSwifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B47C7A61D54A7C300C9CF3A /* LogSwifty.framework */; };
 		4B47C7B51D54A7C300C9CF3A /* LogSwiftyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47C7B41D54A7C300C9CF3A /* LogSwiftyTests.swift */; };
-		4B47C7B71D54A7C300C9CF3A /* LogSwifty.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B47C7A91D54A7C300C9CF3A /* LogSwifty.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B47C7C11D54A7DC00C9CF3A /* LogSwifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47C7C01D54A7DC00C9CF3A /* LogSwifty.swift */; };
+		4B47C7C21D54C22C00C9CF3A /* LogSwifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47C7C01D54A7DC00C9CF3A /* LogSwifty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		4B47C7A61D54A7C300C9CF3A /* LogSwifty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LogSwifty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B47C7A91D54A7C300C9CF3A /* LogSwifty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogSwifty.h; sourceTree = "<group>"; };
 		4B47C7AA1D54A7C300C9CF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B47C7AF1D54A7C300C9CF3A /* LogSwiftyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogSwiftyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B47C7B41D54A7C300C9CF3A /* LogSwiftyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiftyTests.swift; sourceTree = "<group>"; };
@@ -55,8 +53,8 @@
 		4B47C79C1D54A7C300C9CF3A = {
 			isa = PBXGroup;
 			children = (
-				4B47C7A81D54A7C300C9CF3A /* LogSwifty */,
-				4B47C7B31D54A7C300C9CF3A /* LogSwiftyTests */,
+				4B47C7A81D54A7C300C9CF3A /* Source */,
+				4B47C7B31D54A7C300C9CF3A /* Tests */,
 				4B47C7A71D54A7C300C9CF3A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,23 +68,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4B47C7A81D54A7C300C9CF3A /* LogSwifty */ = {
+		4B47C7A81D54A7C300C9CF3A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				4B47C7A91D54A7C300C9CF3A /* LogSwifty.h */,
-				4B47C7AA1D54A7C300C9CF3A /* Info.plist */,
 				4B47C7C01D54A7DC00C9CF3A /* LogSwifty.swift */,
+				4B47C7AA1D54A7C300C9CF3A /* Info.plist */,
 			);
-			path = LogSwifty;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		4B47C7B31D54A7C300C9CF3A /* LogSwiftyTests */ = {
+		4B47C7B31D54A7C300C9CF3A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				4B47C7B41D54A7C300C9CF3A /* LogSwiftyTests.swift */,
 				4B47C7B61D54A7C300C9CF3A /* Info.plist */,
 			);
-			path = LogSwiftyTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,7 +93,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B47C7B71D54A7C300C9CF3A /* LogSwifty.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B47C7C11D54A7DC00C9CF3A /* LogSwifty.swift in Sources */,
+				4B47C7C21D54C22C00C9CF3A /* LogSwifty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,8 +326,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LogSwifty/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = github.io.LogSwifty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,8 +347,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LogSwifty/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = github.io.LogSwifty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -363,7 +361,7 @@
 		4B47C7BE1D54A7C300C9CF3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = LogSwiftyTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = github.io.LogSwiftyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -374,7 +372,7 @@
 		4B47C7BF1D54A7C300C9CF3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = LogSwiftyTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = github.io.LogSwiftyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -401,6 +399,7 @@
 				4B47C7BC1D54A7C300C9CF3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B47C7BD1D54A7C300C9CF3A /* Build configuration list for PBXNativeTarget "LogSwiftyTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +408,7 @@
 				4B47C7BF1D54A7C300C9CF3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

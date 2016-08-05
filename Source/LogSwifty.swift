@@ -42,10 +42,6 @@ struct Message {
 }
 
 extension Loggable {
-    var dateFormatter: DateFormatter {
-        return DateFormatter()
-    }
-
     func log(_ level: LogLevel, message: String, file: String = #file, function: String = #function, line: Int = #line) {
         let message = Message(message, level: level, file: file, function: function, line: line)
         print(formatMessage(message))

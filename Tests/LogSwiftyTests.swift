@@ -10,19 +10,21 @@ import XCTest
 @testable import LogSwifty
 
 class LogSwiftyTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
+    func testOutputMessage() {
         let loggableObject = CrazyClass()
         loggableObject.doSomethingCrazy()
+        let last = LogStack.logs.last
+        XCTAssertTrue((last?.contains("something crazy happened!"))!)
+    }
+}
+
+struct LogStack {
+    static var logs = [String]()
+}
+
+extension Logger {
+    func logMessage(message: String) {
+        LogStack.logs.append(message)
     }
 }
 

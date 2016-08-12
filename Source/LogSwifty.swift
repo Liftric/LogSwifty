@@ -41,6 +41,8 @@ public class Log {
 }
 
 public class DebugLogger: Logger {
+    public init() { }
+
     public func log(message: String) {
         print(message)
     }

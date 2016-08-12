@@ -9,27 +9,37 @@
 import XCTest
 @testable import LogSwifty
 
+class EmptyLogger: Logger {
+    func log(message: String) {
+        // .done
+    }
+}
+
+class BugsnagLogger: Logger {
+    var logs = [String]()
+
+    func log(message: String) {
+        logs.append(message)
+    }
+}
+
 class LogSwiftyTests: XCTestCase {
-    func testOutputMessage() {
-        let loggableObject = CrazyClass()
-        loggableObject.doSomethingCrazy()
-        let last = LogStack.logs.last
-        XCTAssertTrue((last?.contains("something crazy happened!"))!)
-    }
-}
+    func testBugsnagLogger() {
+        let bugsnag = BugsnagLogger()
 
-struct LogStack {
-    static var logs = [String]()
-}
+        Log.add(logger: DebugLogger())
+        Log.add(logger: EmptyLogger())
+        Log.add(logger: bugsnag)
 
-extension Logger {
-    func logMessage(message: String) {
-        LogStack.logs.append(message)
-    }
-}
+        Log.v("test")
 
-class CrazyClass: Loggable {
-    func doSomethingCrazy() {
-        log(.info, message: "something crazy happened!")
+        guard let last = bugsnag.logs.last else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertTrue(last.contains("test"))
+        XCTAssertTrue(last.contains("[verbose]"))
+        XCTAssertFalse(last.contains("test2"))
     }
 }

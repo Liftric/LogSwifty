@@ -24,9 +24,3 @@ class RESTLogger: Logger {
     }
 }
 ```
-
-Example output:
-
-```swift
-2016-08-05 13:58:47 +0000	[info]	AwesomeViewController.swift:3	some stuff to be logged
-```

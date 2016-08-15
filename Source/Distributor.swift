@@ -20,9 +20,13 @@ struct Message {
     let body: String
     let metadata: Metadata
 
-    init(_ message: String, level: Level, file: String, function: String, line: Int) {
-        self.body = message
+    init(_ body: AnyObject?, level: Level, file: String, function: String, line: Int) {
         self.metadata = Metadata(level: level, file: file, function: function, line: line)
+        if let body = body {
+            self.body = "\(body)"
+            return
+        }
+        self.body = "\(body)"
     }
 
     struct Metadata {
@@ -45,6 +49,10 @@ class Distributor {
     var loggers = [Logger]()
 
     func add(logger: Logger) {
+        let contains = loggers.contains { needle -> Bool in
+            return ObjectIdentifier.init(logger) == ObjectIdentifier.init(needle)
+        }
+        guard contains == false else { fatalError("A logger instance can not be added more than once") }
         loggers.append(logger)
     }
 
@@ -59,6 +67,20 @@ class Distributor {
     }
 
     func format(message: Message) -> String {
-        return "\(message.metadata.timestamp)\t[\(message.metadata.level)]\t\(message.metadata.file):\(message.metadata.line)\t\(message.metadata.function): \(message.body)"
+        var stack = [String]()
+
+        let prefix = [
+            "\(message.metadata.timestamp)",
+            "[\(message.metadata.level)]",
+            "\(message.metadata.file):\(message.metadata.line)",
+            "\(message.metadata.function):"
+        ]
+
+        message.body.enumerateLines { (line, _) in
+            let stringRepresentable = "\(prefix.joined(separator: "\t")) \(line)"
+            stack.append(stringRepresentable)
+        }
+
+        return stack.joined(separator: "\n")
     }
 }

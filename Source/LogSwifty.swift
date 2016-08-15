@@ -45,7 +45,7 @@ public class Log {
     }
 }
 
-extension Log {
+public extension Log {
     // MARK: - stdout logger
 
     static var debug: Logger {
@@ -56,8 +56,8 @@ extension Log {
     }
 }
 
-public class DebugLogger: Logger {
-    public func log(message: String) {
+class DebugLogger: Logger {
+    func log(message: String) {
         print(message)
     }
 }

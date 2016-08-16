@@ -20,7 +20,7 @@ struct Message {
     let body: String
     let metadata: Metadata
 
-    init(_ body: AnyObject?, level: Level, file: String, function: String, line: Int) {
+    init(_ body: Any?, level: Level, file: String, function: String, line: Int) {
         self.metadata = Metadata(level: level, file: file, function: function, line: line)
         if let body = body {
             self.body = "\(body)"
@@ -56,17 +56,17 @@ class Distributor {
         loggers.append(logger)
     }
 
-    func distribute(log: String) {
+    func distribute(_ log: String) {
         loggers.forEach { logger in
-            logger.log(message: log)
+            logger.log(log)
         }
     }
 
-    func log(message: Message) {
-        distribute(log: format(message: message))
+    func log(_ message: Message) {
+        distribute(format(message))
     }
 
-    func format(message: Message) -> String {
+    func format(_ message: Message) -> String {
         var stack = [String]()
 
         let prefix = [

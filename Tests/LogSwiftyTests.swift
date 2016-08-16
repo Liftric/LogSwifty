@@ -10,7 +10,7 @@ import XCTest
 @testable import LogSwifty
 
 class EmptyLogger: Logger {
-    func log(message: String) {
+    func log(_ message: String) {
         // .done
     }
 }
@@ -18,7 +18,7 @@ class EmptyLogger: Logger {
 class BugsnagLogger: Logger {
     var logs = [String]()
 
-    func log(message: String) {
+    func log(_ message: String) {
         logs.append(message)
     }
 
@@ -40,7 +40,7 @@ struct XMLParsingError: Error {
 }
 
 extension String {
-    func contains(find: String) -> Bool{
+    func contains(_ find: String) -> Bool{
         print(self)
         print(find)
         return self.range(of: find) != nil
@@ -69,8 +69,7 @@ class LogSwiftyTests: XCTestCase {
             XCTFail("missing log")
             return
         }
-        XCTAssertTrue(last.contains("XMLParsingError"))
-        XCTAssertTrue(last.contains("Code=1"))
+        XCTAssertTrue(last.contains("XMLParsingError.ErrorKind.internalError"))
     }
 
     func testMultilineLogging() {

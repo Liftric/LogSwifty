@@ -154,6 +154,7 @@
 					};
 					4B47C7AE1D54A7C300C9CF3A = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};

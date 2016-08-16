@@ -9,38 +9,38 @@
 import Foundation
 
 public protocol Logger: class {
-    func log(message: String)
+    func log(_ message: String)
 }
 
-public class Log {
+open class Log {
     // MARK: - Accessible logging methods
 
-    public class func v(_ body: AnyObject?, file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(message: Message(body, level: Level.verbose, file: file, function: function, line: line))
+    open class func v(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+        distributor.log(Message(body, level: Level.verbose, file: file, function: function, line: line))
     }
 
-    public class func d(_ body: AnyObject?, file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(message: Message(body, level: Level.debug, file: file, function: function, line: line))
+    open class func d(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+        distributor.log(Message(body, level: Level.debug, file: file, function: function, line: line))
     }
 
-    public class func i(_ body: AnyObject?, file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(message: Message(body, level: Level.info, file: file, function: function, line: line))
+    open class func i(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+        distributor.log(Message(body, level: Level.info, file: file, function: function, line: line))
     }
 
-    public class func w(_ body: AnyObject?, file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(message: Message(body, level: Level.warning, file: file, function: function, line: line))
+    open class func w(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+        distributor.log(Message(body, level: Level.warning, file: file, function: function, line: line))
     }
 
-    public class func e(_ body: AnyObject?, file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(message: Message(body, level: Level.error, file: file, function: function, line: line))
+    open class func e(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+        distributor.log(Message(body, level: Level.error, file: file, function: function, line: line))
     }
 
-    private static let distributor = Distributor()
-    public class func add(logger: Logger) {
+    fileprivate static let distributor = Distributor()
+    open class func add(logger: Logger) {
         distributor.add(logger: logger)
     }
 
-    public class func empty() {
+    open class func empty() {
         distributor.loggers.removeAll()
     }
 }
@@ -57,7 +57,7 @@ public extension Log {
 }
 
 class DebugLogger: Logger {
-    func log(message: String) {
+    func log(_ message: String) {
         print(message)
     }
 }

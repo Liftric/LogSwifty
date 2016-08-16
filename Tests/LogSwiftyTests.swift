@@ -39,14 +39,6 @@ struct XMLParsingError: Error {
     let kind: ErrorKind
 }
 
-extension String {
-    func contains(_ find: String) -> Bool{
-        print(self)
-        print(find)
-        return self.range(of: find) != nil
-    }
-}
-
 class LogSwiftyTests: XCTestCase {
     let bugsnag = BugsnagLogger()
 

@@ -35,7 +35,7 @@ open class Log {
         distributor.log(Message(body, level: Level.error, file: file, function: function, line: line))
     }
 
-    fileprivate static let distributor = Distributor()
+    private static let distributor = Distributor()
     open class func add(logger: Logger) {
         distributor.add(logger: logger)
     }

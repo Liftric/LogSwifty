@@ -17,16 +17,20 @@ enum Level: Int {
 }
 
 struct Message {
-    let body: String
     let metadata: Metadata
+    var body: String = ""
 
-    init(_ body: Any?, level: Level, file: String, function: String, line: Int) {
+    init(_ body: [Any?], level: Level, file: String, function: String, line: Int) {
         self.metadata = Metadata(level: level, file: file, function: function, line: line)
-        if let body = body {
-            self.body = "\(body)"
-            return
+        guard body.count > 0 else { return }
+        for b in body {
+            if let unwrapped = b {
+                self.body += "\(unwrapped) "
+                continue
+            }
+            self.body += "\(b) "
         }
-        self.body = "\(body)"
+        self.body = String(self.body.characters.dropLast())
     }
 
     struct Metadata {
@@ -75,9 +79,10 @@ class Distributor {
             "\(message.metadata.file):\(message.metadata.line)",
             "\(message.metadata.function):"
         ]
+        let metadata = prefix.joined(separator: "\t")
 
         message.body.enumerateLines { (line, _) in
-            let stringRepresentable = "\(prefix.joined(separator: "\t")) \(line)"
+            let stringRepresentable = "\(metadata) \(line)"
             stack.append(stringRepresentable)
         }
 

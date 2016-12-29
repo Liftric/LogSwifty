@@ -15,23 +15,23 @@ public protocol Logger: class {
 open class Log {
     // MARK: - Accessible logging methods
 
-    open class func v(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+    open class func v(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         distributor.log(Message(body, level: Level.verbose, file: file, function: function, line: line))
     }
 
-    open class func d(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+    open class func d(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         distributor.log(Message(body, level: Level.debug, file: file, function: function, line: line))
     }
 
-    open class func i(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+    open class func i(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         distributor.log(Message(body, level: Level.info, file: file, function: function, line: line))
     }
 
-    open class func w(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+    open class func w(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         distributor.log(Message(body, level: Level.warning, file: file, function: function, line: line))
     }
 
-    open class func e(_ body: Any?, file: String = #file, function: String = #function, line: Int = #line) {
+    open class func e(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         distributor.log(Message(body, level: Level.error, file: file, function: function, line: line))
     }
 

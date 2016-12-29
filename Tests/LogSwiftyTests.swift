@@ -83,6 +83,29 @@ class LogSwiftyTests: XCTestCase {
         }
     }
 
+    func testOptionalLogging() {
+        let optional = URL(string: "github.io")
+        Log.d(optional as Any)
+        guard let last = bugsnag.logs.last else {
+            XCTFail("missing log")
+            return
+        }
+        XCTAssertTrue(last.contains("github.io"))
+        XCTAssertFalse(last.contains("Optional(github.io)"))
+    }
+
+    func testVariadicLogging() {
+        let foo = Date()
+        let bar = Data()
+        Log.d(foo, bar)
+        guard let last = bugsnag.logs.last else {
+            XCTFail("missing log")
+            return
+        }
+        XCTAssertTrue(last.contains("+0000"))
+        XCTAssertTrue(last.contains("0 bytes"))
+    }
+
     func testBugsnagLogger() {
         Log.v("test")
         guard let last = bugsnag.logs.last else {

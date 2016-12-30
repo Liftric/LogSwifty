@@ -10,7 +10,7 @@ import XCTest
 @testable import LogSwifty
 
 class EmptyLogger: Logger {
-    func log(_ message: String) {
+    func log(_ message: Message) {
         // .done
     }
 }
@@ -18,8 +18,8 @@ class EmptyLogger: Logger {
 class BugsnagLogger: Logger {
     var logs = [String]()
 
-    func log(_ message: String) {
-        logs.append(message)
+    func log(_ message: Message) {
+        logs.append("\(message)")
     }
 
     func empty() {

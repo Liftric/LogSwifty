@@ -9,12 +9,11 @@
 import Foundation
 
 public protocol Logger: class {
-    func log(_ message: String)
+    func log(_ message: Message)
 }
 
 open class Log {
     // MARK: - Accessible logging methods
-
     open class func v(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         distributor.log(Message(body, level: Level.verbose, file: file, function: function, line: line))
     }
@@ -45,19 +44,18 @@ open class Log {
     }
 }
 
-public extension Log {
+class DebugLogger: Logger {
     // MARK: - stdout logger
+    func log(_ message: Message) {
+        print(message)
+    }
+}
 
+public extension Log {
     static var debug: Logger {
         struct Singleton {
             static let debug = DebugLogger()
         }
         return Singleton.debug
-    }
-}
-
-class DebugLogger: Logger {
-    func log(_ message: String) {
-        print(message)
     }
 }

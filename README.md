@@ -2,7 +2,7 @@
 
 Simple logging for Swift.
 
-### Usage
+## Usage
 
 ```swift
 import LogSwifty
@@ -21,7 +21,7 @@ class SomeViewController: UIViewController {
 }
 ```
 
-For other use cases create your own Logger:
+### For other use cases create your own Logger.
 
 ```swift
 import LogSwifty

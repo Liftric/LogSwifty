@@ -21,8 +21,7 @@ public struct Message: CustomStringConvertible {
         // deal with multiline
         var stack = [String]()
         message.enumerateLines { line, _ in
-            let stringRepresentable = "\(self.metadata) \(line)"
-            stack.append(stringRepresentable)
+            stack.append("\(self.metadata) \(line)")
         }
         return stack.joined(separator: "\n")
     }

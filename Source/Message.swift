@@ -39,7 +39,7 @@ public struct Message: CustomStringConvertible {
                 unvariadic += "\(unwrapped) "
                 continue
             }
-            unvariadic += "\(b) "
+            unvariadic += "\(b ?? "") "
         }
         self.message = String(unvariadic.characters.dropLast())
     }

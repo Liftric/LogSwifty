@@ -2,6 +2,14 @@
 
 Simple logging for Swift.
 
+## Installation
+
+LogSwifty can be installed using [Carthage](https://github.com/Carthage/Carthage). After installing Carthage just add LogSwifty to your Cartfile as follows:
+
+```ruby
+github "benjohnde/LogSwifty" ~> 0.3.0
+```
+
 ## Usage
 
 ```swift

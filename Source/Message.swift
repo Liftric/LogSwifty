@@ -41,7 +41,7 @@ public struct Message: CustomStringConvertible {
             }
             unvariadic += "\(b ?? "") "
         }
-        self.message = String(unvariadic.characters.dropLast())
+        self.message = String(unvariadic.dropLast())
     }
 
     public struct Metadata: CustomStringConvertible {

@@ -1,3 +1,6 @@
+[![CI Status](https://travis-ci.org/benjohnde/LogSwifty.svg?branch=master)](https://travis-ci.org/benjohnde/LogSwifty)
+[![Carthage Compatibility](https://img.shields.io/badge/carthage-✓-e2c245.svg)](https://github.com/Carthage/Carthage/)
+
 # LogSwifty
 
 Simple logging for Swift.

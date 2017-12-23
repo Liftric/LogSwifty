@@ -13,6 +13,8 @@
 		4B47C7C21D54C22C00C9CF3A /* LogSwifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47C7C01D54A7DC00C9CF3A /* LogSwifty.swift */; };
 		4B55E03F1FEE694100046049 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B55E03E1FEE694100046049 /* Metadata.swift */; };
 		4B55E0411FEE694800046049 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B55E0401FEE694800046049 /* Level.swift */; };
+		4B55E0431FEE6DB200046049 /* Loggers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B55E0421FEE6DB200046049 /* Loggers.swift */; };
+		4B55E0451FEE6DE600046049 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B55E0441FEE6DE600046049 /* TestHelpers.swift */; };
 		4B6082D51D5DD48A00F6DB1F /* Distributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6082D41D5DD48A00F6DB1F /* Distributor.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		4B47C7C01D54A7DC00C9CF3A /* LogSwifty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSwifty.swift; sourceTree = "<group>"; };
 		4B55E03E1FEE694100046049 /* Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
 		4B55E0401FEE694800046049 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		4B55E0421FEE6DB200046049 /* Loggers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loggers.swift; sourceTree = "<group>"; };
+		4B55E0441FEE6DE600046049 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		4B6082D41D5DD48A00F6DB1F /* Distributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distributor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				4B47C7B41D54A7C300C9CF3A /* LogSwiftyTests.swift */,
+				4B55E0421FEE6DB200046049 /* Loggers.swift */,
+				4B55E0441FEE6DE600046049 /* TestHelpers.swift */,
 				4B47C7B61D54A7C300C9CF3A /* Info.plist */,
 			);
 			path = Tests;
@@ -221,6 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B47C7B51D54A7C300C9CF3A /* LogSwiftyTests.swift in Sources */,
+				4B55E0431FEE6DB200046049 /* Loggers.swift in Sources */,
+				4B55E0451FEE6DE600046049 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

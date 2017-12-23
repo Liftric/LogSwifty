@@ -9,47 +9,20 @@
 import XCTest
 @testable import LogSwifty
 
-class EmptyLogger: Logger {
-    func log(_ message: Message) {
-        // .done
-    }
-}
-
-class BugsnagLogger: Logger {
-    var logs = [String]()
-
-    func log(_ message: Message) {
-        logs.append("\(message)")
-    }
-
-    func empty() {
-        logs.removeAll()
-    }
-}
-
-struct XMLParsingError: Error {
-    enum ErrorKind {
-        case invalidCharacter
-        case mismatchedTag
-        case internalError
-    }
-
-    let line: Int
-    let column: Int
-    let kind: ErrorKind
-}
-
 class LogSwiftyTests: XCTestCase {
     let bugsnag = BugsnagLogger()
+    let warningAndError = WarningAndErrorLogger()
 
     override func setUp() {
         super.setUp()
         Log.add(logger: Log.debug)
         Log.add(logger: EmptyLogger())
         Log.add(logger: bugsnag)
+        Log.add(logger: warningAndError)
     }
 
     override func tearDown() {
+        warningAndError.empty()
         bugsnag.empty()
         Log.empty()
         super.tearDown()
@@ -115,5 +88,33 @@ class LogSwiftyTests: XCTestCase {
         XCTAssertTrue(last.contains("test"))
         XCTAssertTrue(last.contains("[verbose]"))
         XCTAssertFalse(last.contains("test2"))
+    }
+    
+    func testWarningAndErrorLogger_shouldContainWarning() {
+        Log.w("test")
+        guard let last = warningAndError.logs.last else {
+            XCTFail("missing log")
+            return
+        }
+        XCTAssertTrue(last.contains("test"))
+        XCTAssertTrue(last.contains("[warning]"))
+    }
+    
+    func testWarningAndErrorLogger_shouldContainError() {
+        Log.e("test")
+        guard let last = warningAndError.logs.last else {
+            XCTFail("missing log")
+            return
+        }
+        XCTAssertTrue(last.contains("test"))
+        XCTAssertTrue(last.contains("[error]"))
+    }
+    
+    func testWarningAndErrorLogger_shouldNotContainInfo() {
+        Log.i("test")
+        guard warningAndError.logs.isEmpty else {
+            XCTFail("has log but should not contain any")
+            return
+        }
     }
 }

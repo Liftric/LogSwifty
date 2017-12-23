@@ -9,29 +9,37 @@
 import Foundation
 
 public protocol Logger: class {
+    var level: Level { get }
+    
     func log(_ message: Message)
+}
+
+extension Logger {
+    var level: Level {
+        return .verbose
+    }
 }
 
 open class Log {
     // MARK: - Accessible logging methods
     open class func v(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(Message(body, level: Level.verbose, file: file, function: function, line: line))
+        distributor.log(Message(body, level: .verbose, file: file, function: function, line: line))
     }
 
     open class func d(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(Message(body, level: Level.debug, file: file, function: function, line: line))
+        distributor.log(Message(body, level: .debug, file: file, function: function, line: line))
     }
 
     open class func i(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(Message(body, level: Level.info, file: file, function: function, line: line))
+        distributor.log(Message(body, level: .info, file: file, function: function, line: line))
     }
 
     open class func w(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(Message(body, level: Level.warning, file: file, function: function, line: line))
+        distributor.log(Message(body, level: .warning, file: file, function: function, line: line))
     }
 
     open class func e(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        distributor.log(Message(body, level: Level.error, file: file, function: function, line: line))
+        distributor.log(Message(body, level: .error, file: file, function: function, line: line))
     }
 
     private static let distributor = Distributor()

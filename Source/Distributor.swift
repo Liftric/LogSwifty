@@ -21,6 +21,7 @@ class Distributor {
 
     func distribute(_ log: Message) {
         loggers.forEach { logger in
+            guard logger.level <= log else { return }
             logger.log(log)
         }
     }

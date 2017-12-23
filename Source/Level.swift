@@ -14,3 +14,9 @@ public enum Level: Int {
     case warning = 3
     case error = 4
 }
+
+extension Level {
+    public static func <=(lhs: Level, rhs: Message) -> Bool {
+        return lhs.rawValue <= rhs.metadata.level.rawValue
+    }
+}

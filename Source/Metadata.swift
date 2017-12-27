@@ -16,8 +16,8 @@ public struct Metadata {
     
     init(level: Level, file: StaticString, function: StaticString, line: UInt) {
         self.level = level
-        self.file = URL(fileURLWithPath: String(file)).lastPathComponent
-        self.function = String(function)
+        self.file = URL(fileURLWithPath: String(describing: file)).lastPathComponent
+        self.function = String(describing: function)
         self.line = line
     }
 }
@@ -31,13 +31,5 @@ extension Metadata: CustomStringConvertible {
             "\(self.function):"
         ]
         return desc.joined(separator: "\t")
-    }
-}
-
-extension String {
-    init(_ staticString: StaticString) {
-        self = staticString.withUTF8Buffer {
-            String(decoding: $0, as: UTF8.self)
-        }
     }
 }

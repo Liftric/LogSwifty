@@ -12,7 +12,7 @@ public struct Message {
     let metadata: Metadata
     let message: String
     
-    init(_ body: [Any?], level: Level, file: String, function: String, line: Int) {
+    init(_ body: [Any?], level: Level, file: StaticString, function: StaticString, line: UInt) {
         self.metadata = Metadata(level: level, file: file, function: function, line: line)
         
         // deal with variadic parameter

@@ -22,23 +22,23 @@ extension Logger {
 
 open class Log {
     // MARK: - Accessible logging methods
-    open class func v(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
+    open class func v(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         distributor.log(Message(body, level: .verbose, file: file, function: function, line: line))
     }
 
-    open class func d(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
+    open class func d(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         distributor.log(Message(body, level: .debug, file: file, function: function, line: line))
     }
 
-    open class func i(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
+    open class func i(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         distributor.log(Message(body, level: .info, file: file, function: function, line: line))
     }
 
-    open class func w(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
+    open class func w(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         distributor.log(Message(body, level: .warning, file: file, function: function, line: line))
     }
 
-    open class func e(_ body: Any..., file: String = #file, function: String = #function, line: Int = #line) {
+    open class func e(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         distributor.log(Message(body, level: .error, file: file, function: function, line: line))
     }
 

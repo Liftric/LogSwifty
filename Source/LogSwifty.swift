@@ -47,6 +47,10 @@ open class Log {
         distributor.add(logger: logger)
     }
 
+    open class func add(loggers: [Logger]) {
+        loggers.forEach { distributor.add(logger: $0) }
+    }
+
     open class func empty() {
         distributor.loggers.removeAll()
     }

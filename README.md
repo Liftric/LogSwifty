@@ -4,10 +4,21 @@ Simple logging for Swift.
 
 ## Installation
 
+### Via Carthage
+
 LogSwifty can be installed using [Carthage](https://github.com/Carthage/Carthage). After installing Carthage just add LogSwifty to your Cartfile as follows:
 
 ```ruby
-github "benjohnde/LogSwifty" ~> 1.0
+github "benjohnde/LogSwifty" ~> 1.1
+```
+
+### Via CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. After installing CocoaPods add LogSwifty to your Podfile:
+
+```ruby
+platform :ios, '9.0'
+pod 'LogSwifty', '~> 1.1.0'
 ```
 
 ## Usage

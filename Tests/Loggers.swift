@@ -29,6 +29,7 @@ class BugsnagLogger: Logger {
 class WarningAndErrorLogger: Logger {
     var logs = [String]()
     var level: Level = .warning
+    var tag: Tag? = "WithATag"
     
     func log(_ message: Message) {
         logs.append("\(message)")

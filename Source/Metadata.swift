@@ -33,6 +33,6 @@ extension Metadata: CustomStringConvertible {
             "\(self.file):\(self.line)",
             "\(self.function):"
         ]
-        return desc.joined(separator: "\t")
+        return desc.filter({ $0 != "()" }).joined(separator: "\t")
     }
 }

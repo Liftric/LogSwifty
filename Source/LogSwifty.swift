@@ -21,7 +21,7 @@ extension Logger {
     }
 }
 
-public typealias Tag = StaticString
+public typealias Tag = String
 
 open class Log {
     // MARK: - Accessible logging methods

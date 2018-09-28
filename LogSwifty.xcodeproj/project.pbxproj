@@ -16,6 +16,7 @@
 		4B55E0431FEE6DB200046049 /* Loggers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B55E0421FEE6DB200046049 /* Loggers.swift */; };
 		4B55E0451FEE6DE600046049 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B55E0441FEE6DE600046049 /* TestHelpers.swift */; };
 		4B6082D51D5DD48A00F6DB1F /* Distributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6082D41D5DD48A00F6DB1F /* Distributor.swift */; };
+		4B9DEB14215E488A00CB7F80 /* LogSwiftyTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9DEB12215E488600CB7F80 /* LogSwiftyTagTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		4B55E0421FEE6DB200046049 /* Loggers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loggers.swift; sourceTree = "<group>"; };
 		4B55E0441FEE6DE600046049 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		4B6082D41D5DD48A00F6DB1F /* Distributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distributor.swift; sourceTree = "<group>"; };
+		4B9DEB12215E488600CB7F80 /* LogSwiftyTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSwiftyTagTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				4B47C7B41D54A7C300C9CF3A /* LogSwiftyTests.swift */,
+				4B9DEB12215E488600CB7F80 /* LogSwiftyTagTests.swift */,
 				4B55E0421FEE6DB200046049 /* Loggers.swift */,
 				4B55E0441FEE6DE600046049 /* TestHelpers.swift */,
 				4B47C7B61D54A7C300C9CF3A /* Info.plist */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B47C7B51D54A7C300C9CF3A /* LogSwiftyTests.swift in Sources */,
+				4B9DEB14215E488A00CB7F80 /* LogSwiftyTagTests.swift in Sources */,
 				4B55E0431FEE6DB200046049 /* Loggers.swift in Sources */,
 				4B55E0451FEE6DE600046049 /* TestHelpers.swift in Sources */,
 			);

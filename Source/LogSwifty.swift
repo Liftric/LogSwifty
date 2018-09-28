@@ -27,7 +27,17 @@ extension Logger {
 
 public typealias Tag = StaticString
 
-open class Log {
+public protocol LogTag {
+    var tag: Tag? { get }
+}
+
+extension LogTag {
+    public var tag: Tag? {
+        return nil
+    }
+}
+
+open class Log: LogTag {
     // MARK: - Accessible logging methods
     open class func v(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
         distributor.log(Message(body, level: .verbose, file: file, function: function, line: line))

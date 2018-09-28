@@ -25,7 +25,7 @@ class Distributor {
             var message = log
             if let tag = logger.tag {
                 message.metadata.tag = tag;
-                logger.log(message)
+                return logger.log(message)
             }
             logger.log(log)
         }

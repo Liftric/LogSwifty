@@ -9,6 +9,12 @@
 import XCTest
 @testable import LogSwifty
 
+fileprivate extension Log {
+    static var tag: Tag? {
+        return "WithATag"
+    }
+}
+
 class LogSwiftyTests: XCTestCase {
     let bugsnag = BugsnagLogger()
     let warningAndError = WarningAndErrorLogger()

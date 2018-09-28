@@ -9,15 +9,15 @@ import Foundation
 
 public struct Metadata {
     let level: Level
-    var tag: Tag?
+    let tag: Tag?
     let file: String
     let function: String
     let line: UInt
     let timestamp: Date = Date()
     
-    init(level: Level, file: StaticString, function: StaticString, line: UInt) {
+    init(level: Level, tag: Tag?, file: StaticString, function: StaticString, line: UInt) {
         self.level = level
-        self.tag = nil
+        self.tag = tag
         self.file = URL(fileURLWithPath: String(describing: file)).lastPathComponent
         self.function = String(describing: function)
         self.line = line

@@ -12,7 +12,7 @@ import XCTest
 @testable import LogSwifty
 
 fileprivate extension Log {
-    var tag: Tag? {
+    static var tag: Tag? {
         return "WithATag"
     }
 }

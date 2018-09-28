@@ -22,6 +22,11 @@ class Distributor {
     func distribute(_ log: Message) {
         loggers.forEach { logger in
             guard logger.level <= log else { return }
+            var message = log
+            if let tag = logger.tag {
+                message.metadata.tag = tag;
+                logger.log(message)
+            }
             logger.log(log)
         }
     }

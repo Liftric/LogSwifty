@@ -89,8 +89,18 @@ class LogSwiftyTests: XCTestCase {
         XCTAssertTrue(last.contains("[verbose]"))
         XCTAssertFalse(last.contains("test2"))
     }
-    
+
     func testWarningAndErrorLogger_shouldContainWarning() {
+        Log.w("test")
+        guard let last = warningAndError.logs.last else {
+            XCTFail("missing log")
+            return
+        }
+        XCTAssertTrue(last.contains("test"))
+        XCTAssertTrue(last.contains("[warning]"))
+    }
+    
+    func testWarningAndErrorLogger_shouldContainTag() {
         Log.w("test")
         guard let last = warningAndError.logs.last else {
             XCTFail("missing log")

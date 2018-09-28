@@ -9,12 +9,6 @@
 import XCTest
 @testable import LogSwifty
 
-fileprivate extension Log {
-    static var tag: Tag? {
-        return "WithATag"
-    }
-}
-
 class LogSwiftyTests: XCTestCase {
     let bugsnag = BugsnagLogger()
     let warningAndError = WarningAndErrorLogger()
@@ -102,6 +96,17 @@ class LogSwiftyTests: XCTestCase {
             XCTFail("missing log")
             return
         }
+        XCTAssertTrue(last.contains("test"))
+        XCTAssertTrue(last.contains("[warning]"))
+    }
+
+    func testWarningAndErrorLogger_shouldContainTag() {
+        Log.w(tag: "WithATag", "test")
+        guard let last = warningAndError.logs.last else {
+            XCTFail("missing log")
+            return
+        }
+        XCTAssertTrue(last.contains("WithATag"))
         XCTAssertTrue(last.contains("test"))
         XCTAssertTrue(last.contains("[warning]"))
     }

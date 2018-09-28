@@ -9,11 +9,11 @@
 import Foundation
 
 public struct Message {
-    let metadata: Metadata
+    var metadata: Metadata
     let message: String
     
-    init(_ body: [Any?], level: Level, file: StaticString, function: StaticString, line: UInt) {
-        self.metadata = Metadata(level: level, file: file, function: function, line: line)
+    init(_ body: [Any?], level: Level, tag: Tag?, file: StaticString, function: StaticString, line: UInt) {
+        self.metadata = Metadata(level: level, tag: tag, file: file, function: function, line: line)
         
         // deal with variadic parameter
         var unvariadic: String = ""

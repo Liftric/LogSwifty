@@ -14,32 +14,35 @@ public protocol Logger: class {
     func log(_ message: Message)
 }
 
+/// Default protocol implementation.
 extension Logger {
     var level: Level {
         return .verbose
     }
 }
 
+public typealias Tag = String
+
 open class Log {
     // MARK: - Accessible logging methods
-    open class func v(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
-        distributor.log(Message(body, level: .verbose, file: file, function: function, line: line))
+    open class func v(tag: Tag? = nil, _ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+        distributor.log(Message(body, level: .verbose, tag: tag, file: file, function: function, line: line))
     }
 
-    open class func d(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
-        distributor.log(Message(body, level: .debug, file: file, function: function, line: line))
+    open class func d(tag: Tag? = nil, _ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+        distributor.log(Message(body, level: .debug, tag: tag, file: file, function: function, line: line))
     }
 
-    open class func i(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
-        distributor.log(Message(body, level: .info, file: file, function: function, line: line))
+    open class func i(tag: Tag? = nil, _ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+        distributor.log(Message(body, level: .info, tag: tag, file: file, function: function, line: line))
     }
 
-    open class func w(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
-        distributor.log(Message(body, level: .warning, file: file, function: function, line: line))
+    open class func w(tag: Tag? = nil, _ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+        distributor.log(Message(body, level: .warning, tag: tag, file: file, function: function, line: line))
     }
 
-    open class func e(_ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
-        distributor.log(Message(body, level: .error, file: file, function: function, line: line))
+    open class func e(tag: Tag? = nil, _ body: Any..., file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+        distributor.log(Message(body, level: .error, tag: tag, file: file, function: function, line: line))
     }
 
     private static let distributor = Distributor()

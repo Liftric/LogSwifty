@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "LogSwifty"
-  s.version = "1.1.0"
+  s.version = "1.1.1"
   s.license = { :type => "MIT", :file => "LICENSE" }
 
   s.summary = "Simple logging for Swift."
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
 
   s.source           = { :git => "https://github.com/benjohnde/LogSwifty.git", :tag => "#{s.version}" }
 
-  s.source_files      = "LogSwifty/Source/**/*.{swift}"
+  s.source_files      = "Source/**/*.{swift}"
   s.requires_arc = true
 end

@@ -18,7 +18,7 @@ github "benjohnde/LogSwifty" ~> 1.1
 
 ```ruby
 platform :ios, '9.0'
-pod 'LogSwifty', '~> 1.1.0'
+pod 'LogSwifty', '~> 1.1.1'
 ```
 
 ## Usage

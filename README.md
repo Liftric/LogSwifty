@@ -1,6 +1,3 @@
-[![CI Status](https://travis-ci.org/Preventis/LogSwifty.svg?branch=master)](https://travis-ci.org/Preventis/LogSwifty)
-[![Carthage Compatibility](https://img.shields.io/badge/carthage-✓-e2c245.svg)](https://github.com/Carthage/Carthage/)
-
 # LogSwifty
 
 Simple logging for Swift.
@@ -10,7 +7,7 @@ Simple logging for Swift.
 LogSwifty can be installed using [Carthage](https://github.com/Carthage/Carthage). After installing Carthage just add LogSwifty to your Cartfile as follows:
 
 ```ruby
-github "Preventis/LogSwifty" ~> 1.0
+github "benjohnde/LogSwifty" ~> 1.0
 ```
 
 ## Usage
